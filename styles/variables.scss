@@ -1,0 +1,12 @@
+$toggle-button-hover-bg: rgba(0, 0, 0, 0.2);
+$dark-mode-toggle-bg-icon: url('/ic-moon-light.svg');
+
+:root {
+  --toggle-button-hover-bg: #{$toggle-button-hover-bg};
+  --dark-mode-toggle-bg-icon: #{$dark-mode-toggle-bg-icon};
+}
+.dark {
+  //app variables
+  --toggle-button-hover-bg: rgba(255, 255, 255, 0.2);
+  --dark-mode-toggle-bg-icon: url('/ic-sun.svg');
+}

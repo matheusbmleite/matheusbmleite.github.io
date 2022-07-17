@@ -1,0 +1,42 @@
+.nav {
+  padding: 0 2rem;
+  position: relative;
+
+  .darkModeToggle {
+    border: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    height: 2.8rem;
+    width: 2.8rem;
+    padding: .5rem;
+    transition: background-color 0.3s ease-out;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+
+    span {
+      background-image: var(--dark-mode-toggle-bg-icon);
+      background-repeat: no-repeat;
+      background-size: contain;
+      height: 1.8rem;
+      width: 1.8rem;
+      display: block;
+    }
+
+
+    &:hover {
+      background-color: var(--toggle-button-hover-bg);
+      transition: background-color 0.3s ease-in;
+    }
+  }
+}
+
+.dark {
+  .nav {
+    .darkModeToggle {
+      span {
+        background-image: url('/ic-sun.svg');
+      }
+    }
+  }
+}

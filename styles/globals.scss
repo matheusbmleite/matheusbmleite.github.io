@@ -1,0 +1,60 @@
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+//bootstrap variables
+$body-bg: #f4f4f4;
+$body-color: #0e1111;
+$link-color: #414a4c;
+$link-hover-color: shift-color($link-color, $link-shade-percentage);
+$font-family-base: 'Roboto', sans-serif;
+
+.dark {
+  $body-bg: #232b2b;
+  $body-color: #f4f4f4;
+  $link-color: #a9a9a9;
+  $link-hover-color: shift-color($link-color, $link-shade-percentage);
+  $primary: #a9a9a9;
+
+  $theme-colors: (
+  "primary": $primary,
+  );
+
+  /* redefine theme color variables */
+  @each $color, $value in $theme-colors {
+    --#{$variable-prefix}#{$color}: #{$value};
+  }
+
+  /* redefine theme color rgb vars (used for bg- colors) */
+  $theme-colors-rgb: map-loop($theme-colors, to-rgb, "$value");
+  @each $color, $value in $theme-colors-rgb {
+    --#{$variable-prefix}#{$color}-rgb: #{$value};
+  }
+
+  // redefine body and link colours
+  --#{$variable-prefix}body-color: #{$body-color};
+  --#{$variable-prefix}body-bg: #{$body-bg};
+  --#{$variable-prefix}link-color: #{$link-color};
+  --#{$variable-prefix}link-hover-color: #{$link-hover-color};
+
+  @import "../node_modules/bootstrap/scss/reboot"; //re-import reboot inside dark class so variables are re-built
+}
+
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/grid";
+
+html, body {
+  transition: background-color .3s ease-in;
+}
+
+a {
+  opacity: 1;
+  transition: opacity 0.3s ease-out;
+
+  &:hover {
+    opacity: 0.7;
+    transition: opacity 0.3s ease-in;
+  }
+}
